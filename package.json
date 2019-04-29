@@ -1,0 +1,14 @@
+{
+  "name": "brain_games",
+  "version": "1.0.0",
+  "description": "первый проект на хекслет, набор мини-игр",
+  "main": "",
+  "bin": {
+    "brain-games": "./src/bin/brain-games.js",
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dmitry Luzko",
+  "license": "ISC"
+}
