@@ -1,6 +1,6 @@
 {
-  "name": "brain_games_dyrenz4",
-  "version": "1.0.0",
+  "name": "brain_games_dyrenz6",
+  "version": "1.0.1",
   "description": "первый проект на хекслет, набор мини-игр(для Windows)",
   "main": "",
   "bin": {
@@ -22,5 +22,8 @@
     "@babel/node": "^7.2.2",
     "@babel/preset-env": "^7.4.4",
     "cross-env": "^5.2.0"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.9"
   }
 }
