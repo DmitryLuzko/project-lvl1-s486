@@ -1,10 +1,10 @@
 {
-  "name": "brain_games_dyrenz6",
-  "version": "1.0.2",
+  "name": "brain_games_dyrenz",
+  "version": "1.0.4",
   "description": "первый проект на хекслет, набор мини-игр(для Windows)",
   "main": "",
   "bin": {
-    "brain-games": "dist/bin/brain-games.js"
+    "brain-even": "dist/bin/brain-even.js"
   },
   "files": [
     "dist"
