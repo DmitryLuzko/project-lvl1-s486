@@ -30,6 +30,7 @@ const brainEven = () => {
     } else {
       console.log('Incorrect answer');
       console.log(`Let's try again, ${askName}`);
+      break;
     }
   } if (count === 3) {
     console.log(`Congratulations, ${askName}`);
