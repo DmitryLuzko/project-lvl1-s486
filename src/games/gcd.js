@@ -11,11 +11,11 @@ const brainGcd = () => {
     const number1 = (Math.floor(Math.random() * 10) + 1) * number;
     const number2 = (Math.floor(Math.random() * 10) + 1) * number;
 
-    const func = (number1, number2) => {
-      if (number2 === 0) {
-        return number1;
+    const func = (a, b) => {
+      if (a === 0) {
+        return a;
       }
-      return func(number2, number1 % number2);
+      return func(b, a % b);
     };
 
     console.log(`Question: ${number1} ${number2}`);
