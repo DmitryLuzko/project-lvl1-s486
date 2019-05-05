@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { calcRules } from '..';
-import brainCalc from '../games/calc';
+import { greeting, calcRules, game } from '..';
+import { brainCalc, questionCalc } from '../games/calc';
 
-calcRules();
-brainCalc();
+greeting(calcRules);
+game(brainCalc, questionCalc);

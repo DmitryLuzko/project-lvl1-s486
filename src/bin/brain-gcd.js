@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { gcdRules } from '..';
-import brainGcd from '../games/gcd';
+import { greeting, gcdRules, game } from '..';
+import { brainGcd, questionGcd } from '../games/gcd';
 
-gcdRules();
-brainGcd();
+greeting(gcdRules);
+game(brainGcd, questionGcd);
