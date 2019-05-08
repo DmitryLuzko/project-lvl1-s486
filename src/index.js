@@ -29,21 +29,36 @@ export const game = (brainGame, question) => {
   let count = 0;
 
   for (let i = 0; i < 3; i += 1) {
-    const number1 = (Math.floor(Math.random() * 100) + 1);
-    const number2 = (Math.floor(Math.random() * 100) + 1);
+    const num1 = (Math.floor(Math.random() * 100) + 1);
+    const num2 = (Math.floor(Math.random() * 100) + 1);
 
+    // НОД
+    const numNod = (Math.floor(Math.random() * 50) + 1);
+    const numNod1 = (Math.floor(Math.random() * 10) + 1) * numNod;
+    const numNod2 = (Math.floor(Math.random() * 10) + 1) * numNod;
     const oper = ['+', '-', '*'];
     const rand = Math.floor(Math.random() * 3);
     const randomOper = oper[rand];
+    // НОД
 
-    question(number1, number2, randomOper);
-    const correctAnswer = readlineSync.question('Your answer: ');
+    // прогрессия
+    const step = (Math.floor(Math.random() * 5) + 1);
+    let firstNum = num1;
+    const prog = [firstNum];
+    for (let j = 0; j < 9; j += 1) {
+      prog.push(firstNum += step);
+    }
+    const n = Math.floor(Math.random() * 10);
+    // прогрессия
 
-    if (correctAnswer === String(brainGame(number1, number2, randomOper))) {
+    question(num1, num2, randomOper, numNod1, numNod2, prog, n);
+    const answer = readlineSync.question('Your answer: ');
+
+    if (answer === String(brainGame(num1, num2, randomOper, numNod1, numNod2, prog, n, step))) {
       console.log('Correct!');
       count += 1;
     } else {
-      console.log(`${correctAnswer} is wrong answer ;(. Correct answer was ${brainGame(number1, number2, randomOper)}`);
+      console.log(`${answer} is wrong answer ;(. Correct answer was ${brainGame(num1, num2, randomOper, numNod1, numNod2, prog, n, step)}`);
       console.log(`Let's try again, ${askName}`);
       break;
     }
