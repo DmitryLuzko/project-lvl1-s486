@@ -22,6 +22,10 @@ export const progressionRules = () => {
   console.log('What number is missing in the progression?');
 };
 
+export const primeRules = () => {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+};
+
 export const game = (brainGame, question) => {
   const askName = readlineSync.question('May I have your names? ');
   console.log(`Hello, ${askName}!`);
