@@ -37,9 +37,9 @@ export const game = (brainGame, question) => {
     const num2 = (Math.floor(Math.random() * 100) + 1);
 
     // НОД
-    const numNod = (Math.floor(Math.random() * 50) + 1);
-    const numNod1 = (Math.floor(Math.random() * 10) + 1) * numNod;
-    const numNod2 = (Math.floor(Math.random() * 10) + 1) * numNod;
+    const numNod = (Math.floor(Math.random() * 30) + 1);
+    const numNod1 = (Math.floor(Math.random() * 30) + 1) * numNod;
+    const numNod2 = (Math.floor(Math.random() * 30) + 1) * numNod;
     const oper = ['+', '-', '*'];
     const rand = Math.floor(Math.random() * 3);
     const randomOper = oper[rand];
