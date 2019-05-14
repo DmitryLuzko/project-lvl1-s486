@@ -1,4 +1,6 @@
-export const brainPrime = (a) => {
+import { greeting, game } from '..';
+
+const brainPrime = (a) => {
   if (a < 2) {
     return 'no';
   }
@@ -10,6 +12,17 @@ export const brainPrime = (a) => {
   return 'yes';
 };
 
-export const questionPrime = (a) => {
+const questionPrime = (a) => {
   console.log(`Question: ${a}`);
 };
+
+const primeRules = () => {
+  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+};
+
+const gamePrime = () => {
+  greeting(primeRules);
+  game(brainPrime, questionPrime);
+};
+
+export default gamePrime;

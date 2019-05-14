@@ -6,26 +6,6 @@ export const greeting = (rules) => {
   console.log('');
 };
 
-export const evenRules = () => {
-  console.log('Answer "yes" if number even otherwise answer "no"');
-};
-
-export const calcRules = () => {
-  console.log('What is the result of the expression?');
-};
-
-export const gcdRules = () => {
-  console.log('Find the greatest common divisor of given numbers.');
-};
-
-export const progressionRules = () => {
-  console.log('What number is missing in the progression?');
-};
-
-export const primeRules = () => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-};
-
 export const game = (brainGame, question) => {
   const askName = readlineSync.question('May I have your names? ');
   console.log(`Hello, ${askName}!`);
@@ -66,7 +46,8 @@ export const game = (brainGame, question) => {
       console.log(`Let's try again, ${askName}`);
       break;
     }
-  } if (count === 3) {
+  }
+  if (count === 3) {
     console.log(`Congratulations, ${askName}!`);
   }
 };
