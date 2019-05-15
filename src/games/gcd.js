@@ -1,23 +1,25 @@
-import { greeting, game } from '..';
+import { game, makeGame } from '..';
 
-const brainGcd = (z, x, c, a, b) => {
+const gcdRules = 'Find the greatest common divisor of given numbers.';
+
+const brainGcd = (a, b) => {
   if (b === 0) {
     return a;
   }
-  return brainGcd(z, x, c, b, a % b);
+  return brainGcd(b, a % b);
 };
 
-const questionGcd = (z, x, c, a, b) => {
-  console.log(`Question: ${a} ${b}`);
-};
+const questionGcd = (a, b) => `${a} ${b}`;
 
-const gcdRules = () => {
-  console.log('Find the greatest common divisor of given numbers.');
+const gcd = () => {
+  const num = (Math.floor(Math.random() * 30) + 1);
+  const num1 = (Math.floor(Math.random() * 30) + 1) * num;
+  const num2 = (Math.floor(Math.random() * 30) + 1) * num;
+  game(brainGcd(num1, num2), questionGcd(num1, num2));
 };
 
 const gameGcd = () => {
-  greeting(gcdRules);
-  game(brainGcd, questionGcd);
+  makeGame(gcd, gcdRules);
 };
 
 export default gameGcd;

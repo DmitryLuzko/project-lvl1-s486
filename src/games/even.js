@@ -1,4 +1,6 @@
-import { greeting, game } from '..';
+import { game, makeGame } from '..';
+
+const evenRules = 'Answer "yes" if number even otherwise answer "no"';
 
 const brainEven = (a) => {
   if (a % 2 === 0) {
@@ -7,17 +9,15 @@ const brainEven = (a) => {
   return 'no';
 };
 
-const questionEven = (a) => {
-  console.log(`Question: ${a}`);
-};
+const questionEven = a => `${a}`;
 
-const evenRules = () => {
-  console.log('Answer "yes" if number even otherwise answer "no"');
+const even = () => {
+  const num = Math.floor(Math.random() * 100) + 1;
+  game(brainEven(num), questionEven(num));
 };
 
 const gameEven = () => {
-  greeting(evenRules);
-  game(brainEven, questionEven);
+  makeGame(even, evenRules);
 };
 
 export default gameEven;

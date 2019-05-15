@@ -1,4 +1,6 @@
-import { greeting, game } from '..';
+import { game, makeGame } from '..';
+
+const primeRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const brainPrime = (a) => {
   if (a < 2) {
@@ -12,17 +14,15 @@ const brainPrime = (a) => {
   return 'yes';
 };
 
-const questionPrime = (a) => {
-  console.log(`Question: ${a}`);
-};
+const questionPrime = a => `${a}`;
 
-const primeRules = () => {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+const prime = () => {
+  const num = Math.floor(Math.random() * 100) + 1;
+  game(brainPrime(num), questionPrime(num));
 };
 
 const gamePrime = () => {
-  greeting(primeRules);
-  game(brainPrime, questionPrime);
+  makeGame(prime, primeRules);
 };
 
 export default gamePrime;
