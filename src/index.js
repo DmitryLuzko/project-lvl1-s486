@@ -1,36 +1,36 @@
 import readlineSync from 'readline-sync';
 
-let count = 0;
-let accept = true;
+let accuracy = true;
 
-export const game = (g, q) => {
-  console.log(`Question: ${q}`);
+export const game = (func, ask) => {
+  console.log(`Question: ${ask}`);
   const answer = readlineSync.question('Your answer: ');
 
-  if (answer === String(g)) {
+  if (answer === String(func)) {
     console.log('Correct!');
-    count += 1;
   } else {
-    console.log(`${answer} is wrong answer ;(. Correct answer was ${g}`);
-    accept = false;
+    console.log(`${answer} is wrong answer ;(. Correct answer was ${func}`);
+    accuracy = false;
   }
 };
 
-export const makeGame = (func, rules) => {
+export const makeGame = (myGame, description) => {
   console.log('Welcome to the Brain Games');
-  console.log(rules);
+  console.log(description);
   console.log('');
   const askName = readlineSync.question('May I have your names? ');
   console.log(`Hello, ${askName}!`);
   console.log('');
-
-  while (count < 3) {
-    func();
-    if (accept === false) {
+  const numberOfRounds = 3;
+  let count = 0;
+  for (let i = 0; i < numberOfRounds; i += 1) {
+    myGame();
+    if (!accuracy) {
       break;
     }
+    count += 1;
   }
-  if (count === 3) {
+  if (count === numberOfRounds) {
     console.log(`Congratulations, ${askName}!`);
   } else {
     console.log(`Let's try again, ${askName}`);

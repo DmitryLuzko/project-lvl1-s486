@@ -1,28 +1,31 @@
 import { game, makeGame } from '..';
+import { randomNum } from '../utils';
 
-const primeRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
-const brainPrime = (a) => {
+const isPrime = (a) => {
   if (a < 2) {
-    return 'no';
+    return false;
   }
   for (let i = 2; i < a; i += 1) {
     if (a % i === 0) {
-      return 'no';
+      return false;
     }
   }
-  return 'yes';
+  return true;
 };
 
 const questionPrime = a => `${a}`;
 
 const prime = () => {
-  const num = Math.floor(Math.random() * 100) + 1;
-  game(brainPrime(num), questionPrime(num));
+  const number = randomNum(1, 100);
+  const func = isPrime(number) ? 'yes' : 'no';
+  const ask = questionPrime(number);
+  game(func, ask);
 };
 
 const gamePrime = () => {
-  makeGame(prime, primeRules);
+  makeGame(prime, description);
 };
 
 export default gamePrime;

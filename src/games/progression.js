@@ -1,29 +1,38 @@
 import { game, makeGame } from '..';
+import { randomNum } from '../utils';
 
-const progressionRules = 'What number is missing in the progression?';
+const description = 'What number is missing in the progression?';
 
-const brainProgression = (p, n, s) => p[n - 1] + s;
+const isProgression = (p, n) => p[n];
 
 const questionProgression = (p, n) => {
-  const newP = p;
-  newP[n] = '..';
-  return `${newP[0]} ${newP[1]} ${newP[2]} ${newP[3]} ${newP[4]} ${newP[5]} ${newP[6]} ${newP[7]} ${newP[8]} ${newP[9]}`;
+  let newP = '';
+  for (let i = 0; i < p.length; i += 1) {
+    if (i === n) {
+      newP += ' ..';
+    } else {
+      newP += ` ${p[i]}`;
+    }
+  }
+  return `${newP}`;
 };
 
 const progression = () => {
-  const step = (Math.floor(Math.random() * 5) + 1);
-  let firstNum = (Math.floor(Math.random() * 100) + 1);
-  const prog = [firstNum];
-  for (let j = 0; j < 9; j += 1) {
-    prog.push(firstNum += step);
+  const step = randomNum(1, 5);
+  let firstNum = randomNum(1, 100);
+  const progr = [firstNum];
+  const progressionLength = 10;
+  for (let j = 0; j < progressionLength - 1; j += 1) {
+    progr.push(firstNum += step);
   }
-  const num = Math.floor(Math.random() * 10);
-
-  game(brainProgression(prog, num, step), questionProgression(prog, num));
+  const position = randomNum(0, 10);
+  const func = isProgression(progr, position);
+  const ask = questionProgression(progr, position);
+  game(func, ask);
 };
 
 const gameProgression = () => {
-  makeGame(progression, progressionRules);
+  makeGame(progression, description);
 };
 
 export default gameProgression;

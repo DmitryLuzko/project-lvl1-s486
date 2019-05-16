@@ -1,25 +1,28 @@
 import { game, makeGame } from '..';
+import { randomNum } from '../utils';
 
-const gcdRules = 'Find the greatest common divisor of given numbers.';
+const description = 'Find the greatest common divisor of given numbers.';
 
-const brainGcd = (a, b) => {
+const isGcd = (a, b) => {
   if (b === 0) {
     return a;
   }
-  return brainGcd(b, a % b);
+  return isGcd(b, a % b);
 };
 
 const questionGcd = (a, b) => `${a} ${b}`;
 
 const gcd = () => {
-  const num = (Math.floor(Math.random() * 30) + 1);
-  const num1 = (Math.floor(Math.random() * 30) + 1) * num;
-  const num2 = (Math.floor(Math.random() * 30) + 1) * num;
-  game(brainGcd(num1, num2), questionGcd(num1, num2));
+  const number = randomNum(1, 30);
+  const number1 = randomNum(1, 30) * number;
+  const number2 = randomNum(1, 30) * number;
+  const func = isGcd(number1, number2);
+  const ask = questionGcd(number1, number2);
+  game(func, ask);
 };
 
 const gameGcd = () => {
-  makeGame(gcd, gcdRules);
+  makeGame(gcd, description);
 };
 
 export default gameGcd;
