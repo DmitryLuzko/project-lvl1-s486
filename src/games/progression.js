@@ -1,5 +1,5 @@
-import { game, makeGame } from '..';
-import { randomNum } from '../utils';
+import makeGame from '..';
+import randomNum from '../utils';
 
 const description = 'What number is missing in the progression?';
 
@@ -26,13 +26,11 @@ const progression = () => {
     progr.push(firstNum += step);
   }
   const position = randomNum(0, 10);
-  const func = isProgression(progr, position);
-  const ask = questionProgression(progr, position);
-  game(func, ask);
+  const game = isProgression(progr, position);
+  const question = questionProgression(progr, position);
+  return [game, question];
 };
 
-const gameProgression = () => {
+export default () => {
   makeGame(progression, description);
 };
-
-export default gameProgression;

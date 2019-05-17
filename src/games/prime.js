@@ -1,5 +1,5 @@
-import { game, makeGame } from '..';
-import { randomNum } from '../utils';
+import makeGame from '..';
+import randomNum from '../utils';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -15,17 +15,15 @@ const isPrime = (a) => {
   return true;
 };
 
-const questionPrime = a => `${a}`;
+const questionPrime = a => String(a);
 
 const prime = () => {
   const number = randomNum(1, 100);
-  const func = isPrime(number) ? 'yes' : 'no';
-  const ask = questionPrime(number);
-  game(func, ask);
+  const game = isPrime(number) ? 'yes' : 'no';
+  const question = questionPrime(number);
+  return [game, question];
 };
 
-const gamePrime = () => {
+export default () => {
   makeGame(prime, description);
 };
-
-export default gamePrime;

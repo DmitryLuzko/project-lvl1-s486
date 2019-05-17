@@ -1,20 +1,18 @@
 import readlineSync from 'readline-sync';
 
-let accuracy = true;
-
-export const game = (func, ask) => {
-  console.log(`Question: ${ask}`);
+const gameProcess = (gameAnswer, gameQuestion) => {
+  console.log(`Question: ${gameQuestion}`);
   const answer = readlineSync.question('Your answer: ');
 
-  if (answer === String(func)) {
+  if (answer === String(gameAnswer)) {
     console.log('Correct!');
-  } else {
-    console.log(`${answer} is wrong answer ;(. Correct answer was ${func}`);
-    accuracy = false;
+    return true;
   }
+  console.log(`${answer} is wrong answer ;(. Correct answer was ${gameAnswer}`);
+  return false;
 };
 
-export const makeGame = (myGame, description) => {
+export default (myGame, description) => {
   console.log('Welcome to the Brain Games');
   console.log(description);
   console.log('');
@@ -25,6 +23,8 @@ export const makeGame = (myGame, description) => {
   let count = 0;
   for (let i = 0; i < numberOfRounds; i += 1) {
     myGame();
+    const [correctAnswer, question] = myGame();
+    const accuracy = gameProcess(correctAnswer, question);
     if (!accuracy) {
       break;
     }

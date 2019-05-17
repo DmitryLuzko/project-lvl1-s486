@@ -1,5 +1,5 @@
-import { game, makeGame } from '..';
-import { randomNum } from '../utils';
+import makeGame from '..';
+import randomNum from '../utils';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
@@ -16,13 +16,11 @@ const gcd = () => {
   const number = randomNum(1, 30);
   const number1 = randomNum(1, 30) * number;
   const number2 = randomNum(1, 30) * number;
-  const func = isGcd(number1, number2);
-  const ask = questionGcd(number1, number2);
-  game(func, ask);
+  const game = isGcd(number1, number2);
+  const question = questionGcd(number1, number2);
+  return [game, question];
 };
 
-const gameGcd = () => {
+export default () => {
   makeGame(gcd, description);
 };
-
-export default gameGcd;
