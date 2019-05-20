@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
 
+const numberOfRounds = 3;
+
 const gameProcess = (gameAnswer, gameQuestion) => {
   console.log(`Question: ${gameQuestion}`);
   const answer = readlineSync.question('Your answer: ');
@@ -19,20 +21,14 @@ export default (myGame, description) => {
   const askName = readlineSync.question('May I have your names? ');
   console.log(`Hello, ${askName}!`);
   console.log('');
-  const numberOfRounds = 3;
-  let count = 0;
   for (let i = 0; i < numberOfRounds; i += 1) {
     myGame();
     const [correctAnswer, question] = myGame();
     const accuracy = gameProcess(correctAnswer, question);
     if (!accuracy) {
-      break;
+      console.log(`Let's try again, ${askName}`);
+      return;
     }
-    count += 1;
   }
-  if (count === numberOfRounds) {
-    console.log(`Congratulations, ${askName}!`);
-  } else {
-    console.log(`Let's try again, ${askName}`);
-  }
+  console.log(`Congratulations, ${askName}!`);
 };

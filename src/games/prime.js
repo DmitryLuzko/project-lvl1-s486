@@ -7,7 +7,7 @@ const isPrime = (a) => {
   if (a < 2) {
     return false;
   }
-  for (let i = 2; i < a; i += 1) {
+  for (let i = 2; i < a / 2; i += 1) {
     if (a % i === 0) {
       return false;
     }
@@ -15,13 +15,13 @@ const isPrime = (a) => {
   return true;
 };
 
-const questionPrime = a => String(a);
+const primeQuestion = a => String(a);
 
 const prime = () => {
   const number = randomNum(1, 100);
-  const game = isPrime(number) ? 'yes' : 'no';
-  const question = questionPrime(number);
-  return [game, question];
+  const answer = isPrime(number) ? 'yes' : 'no';
+  const question = primeQuestion(number);
+  return [answer, question];
 };
 
 export default () => {

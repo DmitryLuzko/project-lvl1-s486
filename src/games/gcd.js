@@ -3,22 +3,21 @@ import randomNum from '../utils';
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const isGcd = (a, b) => {
+const brainGcd = (a, b) => {
   if (b === 0) {
     return a;
   }
-  return isGcd(b, a % b);
+  return brainGcd(b, a % b);
 };
 
-const questionGcd = (a, b) => `${a} ${b}`;
+const gcdQuestion = (a, b) => `${a} ${b}`;
 
 const gcd = () => {
-  const number = randomNum(1, 30);
-  const number1 = randomNum(1, 30) * number;
-  const number2 = randomNum(1, 30) * number;
-  const game = isGcd(number1, number2);
-  const question = questionGcd(number1, number2);
-  return [game, question];
+  const number1 = randomNum(1, 30) * randomNum(1, 30);
+  const number2 = randomNum(1, 30) * randomNum(1, 30);
+  const answer = brainGcd(number1, number2);
+  const question = gcdQuestion(number1, number2);
+  return [answer, question];
 };
 
 export default () => {
