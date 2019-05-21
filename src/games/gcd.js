@@ -13,8 +13,9 @@ const brainGcd = (a, b) => {
 const gcdQuestion = (a, b) => `${a} ${b}`;
 
 const gcd = () => {
-  const number1 = randomNum(1, 30) * randomNum(1, 30);
-  const number2 = randomNum(1, 30) * randomNum(1, 30);
+  const number = randomNum(1, 30);
+  const number1 = randomNum(1, 30) * number;
+  const number2 = randomNum(1, 30) * number;
   const answer = brainGcd(number1, number2);
   const question = gcdQuestion(number1, number2);
   return [answer, question];
